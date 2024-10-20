@@ -1,5 +1,6 @@
 "use server";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { revalidatePath } from "next/cache";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
@@ -118,7 +119,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
       .expression(expression)
       .execute();
 
-    const resourceIds = resources.map((resource: any) => resource.public_id);
+    const resourceIds = resources.map((resource: { public_id: string }) => resource.public_id);
 
     let query = {};
 
