@@ -7,6 +7,7 @@ import { NextResponse } from "next/server";
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 
 export async function POST(req: Request) {
+
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
@@ -56,6 +57,9 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
+  // Juste avant de vérifier le type d'événement
+  console.log("Type d'événement reçu:", eventType);
+
   // CREATE
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } = evt.data;
@@ -70,6 +74,10 @@ export async function POST(req: Request) {
     };
 
     const newUser = await createUser(user);
+
+    if (!newUser) {
+      return new Response("Erreur lors de la création de l'utilisateur", { status: 500 });
+    }
 
     return NextResponse.json({ message: "OK", user: newUser });
   }
