@@ -51,7 +51,7 @@ const MobileNav = () => {
 
                 return (
                   <li 
-                    className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-dark-700`}
+                    className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-primary`}
                     key={link.route}
                     >
                     <Link className="sidebar-link cursor-pointer" href={link.route}>
@@ -73,7 +73,7 @@ const MobileNav = () => {
         </SignedIn>
 
         <SignedOut>
-          <Button asChild className="button bg-purple-gradient bg-cover">
+          <Button asChild className="button bg-primary bg-cover">
             <Link href="/sign-in">Login</Link>
           </Button>
         </SignedOut>

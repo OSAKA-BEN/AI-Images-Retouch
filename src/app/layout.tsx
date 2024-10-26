@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{
-      variables: { colorPrimary: "#624CF5" }
+      variables: { colorPrimary: "#18181b" }
     }}
       signInFallbackRedirectUrl="/profile"
       signUpFallbackRedirectUrl="/"

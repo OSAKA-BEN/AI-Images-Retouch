@@ -13,7 +13,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
   return (
     <>
       <section className="home">
-        <h1 className="home-heading">
+        <h1 className="home-heading mb-4">
           Unleash Your Creative Vision with Imaginify
         </h1>
         <ul className="flex-center w-full gap-20">
