@@ -25,7 +25,8 @@ declare type AddImageParams = {
     transformationType: string;
     width: number;
     height: number;
-    config: Record<string, unknown>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    config: any;
     secureURL: string;
     transformationURL: string;
     aspectRatio: string | undefined;
@@ -44,7 +45,8 @@ declare type UpdateImageParams = {
     transformationType: string;
     width: number;
     height: number;
-    config: Record<string, unknown>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    config: any;
     secureURL: string;
     transformationURL: string;
     aspectRatio: string | undefined;

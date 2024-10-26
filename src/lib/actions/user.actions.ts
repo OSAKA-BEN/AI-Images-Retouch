@@ -15,7 +15,7 @@ export async function createUser(user: CreateUserParams) {
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
-    console.error("Erreur lors de la création de l'utilisateur:", error);
+    console.error("Error during user creation:", error);
     handleError(error);
   }
 }
@@ -24,19 +24,16 @@ export async function createUser(user: CreateUserParams) {
 export async function getUserById(userId: string) {
   try {
     await connectToDatabase();
-    console.log("Recherche de l'utilisateur avec l'ID:", userId);
 
     const user = await User.findOne({ clerkId: userId });
-    console.log("Utilisateur trouvé:", user);
 
     if (!user) {
-      console.log(`Utilisateur avec l'ID ${userId} non trouvé`);
+      console.error(`User with ID ${userId} not found`);
       return null;
     }
 
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
-    console.error("Erreur lors de la recherche de l'utilisateur:", error);
     handleError(error);
   }
 }
