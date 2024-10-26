@@ -23,7 +23,10 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{
       variables: { colorPrimary: "#624CF5" }
-    }}>
+    }}
+      signInFallbackRedirectUrl="/profile"
+      signUpFallbackRedirectUrl="/"
+    >
       <html lang="en">
         <body
           className={cn("font-IBM_Plex antialiased", IBM_Plex.variable)}
